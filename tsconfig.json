@@ -15,6 +15,7 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": "./src",
+    "noImplicitAny": true,
     "paths": {
       "@/components/*": ["components/*"],
       "@/ui/*": ["ui/*"]

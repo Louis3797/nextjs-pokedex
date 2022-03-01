@@ -1,10 +1,10 @@
 /* eslint-disable react/jsx-key */
+import PokemonCard from "@/components/PokemonCard";
 import { usePokemonStore } from "global-stores/PokemonStore";
-import type { GetServerSideProps, NextPage } from "next";
-import { useCallback, useEffect, useState } from "react";
+import type { NextPage } from "next";
+import { useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { IPokemon } from "types/Pokemon";
-import shallow from "zustand/shallow";
 
 export interface Result {
   name: string;
@@ -28,7 +28,7 @@ const Home: NextPage = () => {
   const setNext = usePokemonStore((state) => state.setNext);
 
   async function fetchPokemon(): Promise<void> {
-    if (next.length !== 0) {
+    if (next !== null) {
       const data: PokemonIDList = await fetch(next).then((response) =>
         response.json()
       );
@@ -66,15 +66,19 @@ const Home: NextPage = () => {
         hasMore={!!next}
         loader={<h3> Loading...</h3>}
         endMessage={<h4>Nothing more to show</h4>}
+        className="flex flex-col items-center justify-center"
       >
-        {pokemon.map((data: any, idx: number) => (
-          <div key={idx}>
-            <div className="back">
-              <strong> {data.name}</strong>
-            </div>
-            {data.completed}
-          </div>
-        ))}
+        <div className="grid md:grid-cols-3 sm:grid-cols-1 gap-4 p-16 xl:w-1/2 w-full">
+          {pokemon.map((data: IPokemon, idx: number) => (
+            <PokemonCard
+              key={idx}
+              id={data.id}
+              name={data.name}
+              image={data.sprites.other.dream_world.front_default}
+              type={data.types}
+            />
+          ))}
+        </div>
       </InfiniteScroll>
     </>
   );
