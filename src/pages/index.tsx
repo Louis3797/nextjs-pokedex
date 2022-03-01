@@ -65,8 +65,8 @@ const Home: NextPage = () => {
         dataLength={pokemon.length}
         next={fetchPokemon}
         hasMore={!!next}
-        loader={<h3> Loading...</h3>}
-        endMessage={<h4>Nothing more to show</h4>}
+        loader={<h3></h3>}
+        endMessage={<div></div>}
         className="flex flex-col items-center justify-center"
       >
         <div className="grid lg:grid-cols-2 xl:grid-cols-3 sm:grid-cols-1 gap-4 p-16 xl:w-2/3 w-full">
