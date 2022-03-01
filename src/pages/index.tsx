@@ -46,6 +46,7 @@ const Home: NextPage = () => {
       ).then((response) => response.json());
 
       setPokemons(newPokemon);
+      pokemon.sort((a, b) => a.id - b.id);
     });
   }
 
@@ -68,7 +69,7 @@ const Home: NextPage = () => {
         endMessage={<h4>Nothing more to show</h4>}
         className="flex flex-col items-center justify-center"
       >
-        <div className="grid md:grid-cols-3 sm:grid-cols-1 gap-4 p-16 xl:w-1/2 w-full">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-3 sm:grid-cols-1 gap-4 p-16 xl:w-2/3 w-full">
           {pokemon.map((data: IPokemon, idx: number) => (
             <PokemonCard
               key={idx}
