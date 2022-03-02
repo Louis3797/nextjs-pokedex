@@ -2,30 +2,23 @@
 
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useMemo } from "react";
 import { Type } from "types/Pokemon";
+import { capitalizeFirstLetter } from "utils/capatilize";
 import { PokemonTypeColor } from "utils/colors";
+import { IMG_URL } from "utils/constants";
+import { getBackgroundColors } from "utils/getBackgroundColors";
 
 interface PokemonCard {
   id: number;
   name: string;
-  image: string;
   type: Type[];
 }
 
-const PokemonCard: React.FC<PokemonCard> = ({ id, name, image, type }) => {
+const PokemonCard: React.FC<PokemonCard> = ({ id, name, type }) => {
   const router = useRouter();
-  function capitalizeFirstLetter(text: string): string {
-    return text.charAt(0).toUpperCase() + text.slice(1);
-  }
 
-  const backgroundColors = type.map(({ type }) => {
-    const [[, backgroundColor]] = Object.entries(PokemonTypeColor).filter(
-      ([key, _]) => key === type.name
-    );
-
-    return backgroundColor;
-  });
+  const backgroundColors = useMemo(() => getBackgroundColors(type), [type]);
 
   return (
     <div
@@ -33,7 +26,7 @@ const PokemonCard: React.FC<PokemonCard> = ({ id, name, image, type }) => {
       onClick={() => router.push(`pokemon/${name}`)}
     >
       <div
-        className="flex flex-col relative justify-center items-center  w-full h-2/3 rounded-t-2xl overflow-hidden"
+        className="flex flex-col relative justify-center items-center w-full h-2/3 rounded-t-2xl overflow-hidden"
         style={{
           background: `linear-gradient(0deg, #fafafa, ${backgroundColors[0].light})`,
         }}
@@ -52,7 +45,7 @@ const PokemonCard: React.FC<PokemonCard> = ({ id, name, image, type }) => {
           </g>
         </svg>
         <p
-          className="text-5xl font-bold drop-shadow-xl top-2 absolute"
+          className="text-4xl font-bold drop-shadow-2xl top-2 left-8 absolute tracking-widest"
           style={{
             color: backgroundColors[0].medium,
           }}
@@ -60,10 +53,10 @@ const PokemonCard: React.FC<PokemonCard> = ({ id, name, image, type }) => {
           {"#" + id.toString().padStart(3, "0")}
         </p>
         <Image
-          alt="pokemon-sprite"
-          src={image}
-          height={130}
-          width={130}
+          src={`${IMG_URL + id.toString().padStart(3, "0")}.png`}
+          alt="pokemon"
+          height={200}
+          width={200}
           className="drop-shadow"
         />
       </div>
