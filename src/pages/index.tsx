@@ -46,7 +46,6 @@ const Home: NextPage = () => {
       ).then((response) => response.json());
 
       setPokemons(newPokemon);
-      pokemon.sort((a, b) => a.id - b.id);
     });
   }
 
@@ -75,7 +74,6 @@ const Home: NextPage = () => {
               key={idx}
               id={data.id}
               name={data.name}
-              image={data.sprites.other.dream_world.front_default}
               type={data.types}
             />
           ))}
