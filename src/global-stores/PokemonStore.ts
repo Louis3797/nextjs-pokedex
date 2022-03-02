@@ -8,12 +8,12 @@ type StoreProps = {
   setNext: (newNext: string | null) => void;
 };
 
-export const usePokemonStore = create<StoreProps>((set) => ({
+export const usePokemonStore = create<StoreProps>((set, get) => ({
   pokemon: [],
+  next: "https://pokeapi.co/api/v2/pokemon?limit=30&offset=0",
   setPokemons: (newPokemon: IPokemon) =>
     set((state) => {
-      ({ pokemon: state.pokemon.push(newPokemon) });
+      state.pokemon[newPokemon.id - 1] = newPokemon;
     }),
-  next: "https://pokeapi.co/api/v2/pokemon?limit=30&offset=0",
   setNext: (newNext: string | null) => set((state) => ({ next: newNext })),
 }));
