@@ -94,7 +94,7 @@ export interface OfficialArtwork {
 export interface Other {
   dream_world: DreamWorld;
   home: Home;
-  officialArtwork: OfficialArtwork;
+  official_artwork: OfficialArtwork;
 }
 
 export interface RedBlue {
@@ -112,7 +112,7 @@ export interface Yellow {
 }
 
 export interface GenerationI {
-  redBlue: RedBlue;
+  red_blue: RedBlue;
   yellow: Yellow;
 }
 
@@ -164,8 +164,8 @@ export interface RubySapphire {
 
 export interface GenerationIii {
   emerald: Emerald;
-  fireredLeafgreen: FireredLeafgreen;
-  rubySapphire: RubySapphire;
+  firered_leafgreen: FireredLeafgreen;
+  ruby_sapphire: RubySapphire;
 }
 
 export interface DiamondPearl {
@@ -202,8 +202,8 @@ export interface Platinum {
 }
 
 export interface GenerationIv {
-  diamondPearl: DiamondPearl;
-  heartgoldSoulsilver: HeartgoldSoulsilver;
+  diamond_pearl: DiamondPearl;
+  heartgold_soulsilver: HeartgoldSoulsilver;
   platinum: Platinum;
 }
 
@@ -231,7 +231,7 @@ export interface BlackWhite {
 }
 
 export interface GenerationV {
-  blackWhite: BlackWhite;
+  black_white: BlackWhite;
 }
 
 export interface OmegarubyAlphasapphire {
@@ -249,8 +249,8 @@ export interface XY {
 }
 
 export interface GenerationVi {
-  omegarubyAlphasapphire: OmegarubyAlphasapphire;
-  xy: XY;
+  omegaruby_alphasapphire: OmegarubyAlphasapphire;
+  x_y: XY;
 }
 
 export interface Icons {
@@ -267,7 +267,7 @@ export interface UltraSunUltraMoon {
 
 export interface GenerationVii {
   icons: Icons;
-  ultraSunUltraMoon: UltraSunUltraMoon;
+  ultra_sun_ultra_moon: UltraSunUltraMoon;
 }
 
 export interface Icons2 {
@@ -280,14 +280,14 @@ export interface GenerationViii {
 }
 
 export interface Versions {
-  generationi: GenerationI;
-  generationii: GenerationIi;
-  generationiii: GenerationIii;
-  generationiv: GenerationIv;
-  generationv: GenerationV;
-  generationvi: GenerationVi;
-  generationvii: GenerationVii;
-  generationviii: GenerationViii;
+  generation_i: GenerationI;
+  generation_ii: GenerationIi;
+  generation_iii: GenerationIii;
+  generation_iv: GenerationIv;
+  generation_v: GenerationV;
+  generation_vi: GenerationVi;
+  generation_vii: GenerationVii;
+  generation_viii: GenerationViii;
 }
 
 export interface Sprites {
