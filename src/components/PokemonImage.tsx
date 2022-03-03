@@ -2,7 +2,6 @@
 import { usePokemonDetailStore } from "global-stores/PokemonDetailStore";
 import React, { useMemo } from "react";
 import Image from "next/image";
-import { PokemonTypeColor } from "utils/colors";
 import { Name } from "types/PokemonSpecies";
 import Link from "next/link";
 import { capitalizeFirstLetter } from "utils/capatilize";
@@ -27,12 +26,12 @@ export const PokemonImage = () => {
     <div
       className="flex flex-col h-full w-1/2 relative rounded-l-2xl justify-center items-center"
       style={{
-        background: `radial-gradient(#fafafa,30%, ${backgroundColors[0].light})`,
+        background: `radial-gradient(#fafafa,30%, ${backgroundColors[0].medium})`,
       }}
     >
       <div className="justify-start items-start w-full py-4 px-5 top-0 absolute">
         <Link href={"/"} passHref>
-          <BsArrowLeftShort className="text-4xl text-primary mb-1 opacity-80 font-light" />
+          <BsArrowLeftShort className="text-4xl text-primary mb-1 opacity-80 font-light hover:text-secondary" />
         </Link>
         <p className="text-xl font-medium text-primary px-2">
           {"#" + pokemon.id.toString().padStart(3, "0")}
@@ -47,9 +46,10 @@ export const PokemonImage = () => {
       <Image
         key={pokemon.id}
         src={`${IMG_URL + pokemon.id.toString().padStart(3, "0")}.png`}
-        alt="pokemon-image"
+        alt={pokemon.name}
         height={350}
         width={350}
+        className="animate-poke-bounce"
       />
     </div>
   );

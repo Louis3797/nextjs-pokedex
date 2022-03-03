@@ -18,7 +18,17 @@ module.exports = {
         DEFAULT: colors.red[500],
       },
     },
-    extend: {},
+    extend: {
+      keyframes: {
+        "poke-bounce": {
+          "0%, 100%": { transform: "translateY(-2%)" },
+          "50%": { transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        "poke-bounce": "poke-bounce 3s ease-in-out infinite",
+      },
+    },
   },
   plugins: [],
 };
