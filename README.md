@@ -120,4 +120,4 @@ Project Link: [nextjs-pokedex](https://github.com/Louis3797/nextjs-pokedex/)
 [issues-url]: https://github.com/Louis3797/nextjs-pokedex/issues
 
 [license-shield]: https://img.shields.io/github/license/Louis3797/nextjs-pokedex.svg?style=for-the-badge
-[license-url]: https://github.com/Louis3797/nextjs-pokedex/blob/master/LICENSE.txt
+[license-url]: https://github.com/Louis3797/nextjs-pokedex/blob/main/LICENSE
