@@ -26,7 +26,7 @@ export const EvolutionChain: React.FC<EvolutionChainProps> = ({ chainURL }) => {
     };
   }, [chainURL]);
   return (
-    <div className="flex flex-row justify-between w-full h-full space-x-2 flex-wrap overflow-visible mt-6">
+    <div className="flex flex-row justify-evenly w-full h-full space-x-2 flex-wrap overflow-visible mt-6">
       {typeof data?.chain.species !== "undefined" && (
         <EvolutionImage
           species={data?.chain.species}

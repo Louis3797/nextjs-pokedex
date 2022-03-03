@@ -15,10 +15,7 @@ export const Stats: React.FC<StateProps> = ({ stats }) => {
             <span className="text-secondary text-lg font-semibold" key={index}>
               {s.title}
             </span>
-            <span
-              className="whitespace-pre-line text-lg capitalize"
-              key={index}
-            >
+            <span className="whitespace-pre-line text-lg" key={index}>
               {s.content}
             </span>
           </li>

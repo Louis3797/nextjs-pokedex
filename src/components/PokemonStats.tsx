@@ -20,7 +20,7 @@ export const PokemonStats = () => {
     },
     {
       title: "Habitat",
-      content: species?.habitat?.name,
+      content: capitalizeFirstLetter(species?.habitat?.name),
     },
     {
       title: "Height",

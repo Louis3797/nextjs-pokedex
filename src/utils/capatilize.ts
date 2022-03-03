@@ -1,3 +1,4 @@
-export function capitalizeFirstLetter(text: string): string {
-  return text.charAt(0).toUpperCase() + text.slice(1);
+export function capitalizeFirstLetter(word: string): string {
+  if (!word) return word;
+  return word[0].toUpperCase() + word.substr(1).toLowerCase();
 }
