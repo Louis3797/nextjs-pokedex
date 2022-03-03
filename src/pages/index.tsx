@@ -2,6 +2,7 @@
 import PokemonCard from "@/components/PokemonCard";
 import { usePokemonStore } from "global-stores/PokemonStore";
 import type { NextPage } from "next";
+import Head from "next/head";
 import { useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { IPokemon } from "types/Pokemon";
@@ -60,6 +61,14 @@ const Home: NextPage = () => {
 
   return (
     <>
+      <Head>
+        <title>Pokedéx</title>
+        <meta
+          name="description"
+          content="Get information about all Pokemon"
+        ></meta>
+        <meta property="og:title" content="Pokedéx" key="Pokedéx" />
+      </Head>
       <InfiniteScroll
         dataLength={pokemon.length}
         next={fetchPokemon}
