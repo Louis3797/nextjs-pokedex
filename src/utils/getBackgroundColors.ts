@@ -1,5 +1,4 @@
 import { Type } from "types/Pokemon";
-import { ColorProps } from "types/types";
 import { PokemonTypeColor } from "./colors";
 
 export function getBackgroundColors(

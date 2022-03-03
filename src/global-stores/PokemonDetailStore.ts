@@ -1,5 +1,4 @@
 import create from "zustand";
-import { combine } from "zustand/middleware";
 import { IPokemon } from "types/Pokemon";
 import { IPokemonSpecies } from "types/PokemonSpecies";
 
