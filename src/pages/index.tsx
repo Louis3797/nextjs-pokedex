@@ -68,7 +68,7 @@ const Home: NextPage = () => {
         endMessage={<div></div>}
         className="flex flex-col items-center justify-center"
       >
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 sm:grid-cols-1 gap-4 p-16 xl:w-2/3 w-full">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-3 sm:grid-cols-1 gap-4 p-16 xl:w-2/3 w-full mt-20">
           {pokemon.map((data: IPokemon, idx: number) => (
             <PokemonCard
               key={idx}

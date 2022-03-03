@@ -54,7 +54,7 @@ const PokemonCard: React.FC<PokemonCard> = ({ id, name, type }) => {
         </p>
         <Image
           src={`${IMG_URL + id.toString().padStart(3, "0")}.png`}
-          alt="pokemon"
+          alt={name}
           height={200}
           width={200}
           className="drop-shadow"
