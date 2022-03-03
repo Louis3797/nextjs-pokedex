@@ -35,7 +35,7 @@ export const EvolutionChain: React.FC<EvolutionChainProps> = ({ chainURL }) => {
       )}
       {data?.chain.evolves_to.length !== 0 && (
         <>
-          <BsCaretRightFill className="self-center mb-8 text-lg" />
+          <BsCaretRightFill className="self-center mb-8 text-lg text-secondary" />
           {data?.chain.evolves_to.map((s: EvolvesTo, idx: number) => {
             return (
               <EvolutionImage
@@ -50,7 +50,7 @@ export const EvolutionChain: React.FC<EvolutionChainProps> = ({ chainURL }) => {
       {typeof data?.chain.evolves_to[0]?.evolves_to !== "undefined" &&
         data?.chain.evolves_to[0].evolves_to.length !== 0 && (
           <>
-            <BsCaretRightFill className="self-center mb-8 text-lg" />
+            <BsCaretRightFill className="self-center mb-8 text-lg text-secondary" />
             {data?.chain.evolves_to[0].evolves_to.map(
               (s: EvolvesTo, idx: number) => {
                 return (

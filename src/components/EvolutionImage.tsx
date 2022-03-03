@@ -17,7 +17,7 @@ export const EvolutionImage: React.FC<EvolutionImageProps> = ({
     <div className="flex flex-col items-center justify-center mb-3 ease-in-out duration-700 hover:-translate-y-2">
       <Link href={`/pokemon/${species.name}`} passHref>
         <div
-          className="flex flex-col h-20 w-20 relative rounded-full justify-center items-center"
+          className="flex flex-col h-24 w-24 relative rounded-full justify-center items-center"
           style={{
             background: `radial-gradient(#fafafa,50%, ${bgColor[0].medium})`,
           }}
@@ -32,8 +32,8 @@ export const EvolutionImage: React.FC<EvolutionImageProps> = ({
                 .toString()
                 .padStart(3, "0")
             }.png`}
-            height={70}
-            width={70}
+            height={80}
+            width={80}
             alt={species.name}
           />
         </div>
