@@ -14,7 +14,7 @@ export const EvolutionImage: React.FC<EvolutionImageProps> = ({
   bgColor,
 }) => {
   return (
-    <div className="flex flex-col items-center justify-center mb-3 ease-in-out duration-700 hover:-translate-y-2">
+    <div className="flex flex-col items-center justify-center mb-3 mr-3 xl:mr-6 ease-in-out duration-700 hover:-translate-y-2">
       <Link href={`/pokemon/${species.name}`} passHref>
         <div
           className="flex flex-col h-24 w-24 relative rounded-full justify-center items-center"
