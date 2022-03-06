@@ -1,8 +1,6 @@
 /* eslint-disable react/jsx-key */
-
-import Image from "next/image";
-import { useRouter } from "next/router";
 import React, { useMemo } from "react";
+import { useRouter } from "next/router";
 import { Type } from "types/Pokemon";
 import { capitalizeFirstLetter } from "utils/capatilize";
 import { PokemonTypeColor } from "utils/colors";
@@ -52,11 +50,11 @@ const PokemonCard: React.FC<PokemonCard> = ({ id, name, type }) => {
         >
           {"#" + id.toString().padStart(3, "0")}
         </p>
-        <Image
+        <img
           src={`${IMG_URL + id.toString().padStart(3, "0")}.png`}
           alt={name}
-          height={200}
-          width={200}
+          height="200"
+          width="200"
           className="drop-shadow"
         />
       </div>

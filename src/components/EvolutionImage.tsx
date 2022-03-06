@@ -22,7 +22,7 @@ export const EvolutionImage: React.FC<EvolutionImageProps> = ({
             background: `radial-gradient(#fafafa,50%, ${bgColor[0].medium})`,
           }}
         >
-          <Image
+          <img
             key={species.name}
             src={`${
               IMG_URL +
