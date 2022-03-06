@@ -55,7 +55,9 @@ const PokemonCard: React.FC<PokemonCard> = ({ id, name, type }) => {
         <img
           src={`${IMG_URL + id.toString().padStart(3, "0")}.png`}
           alt={name}
-          className="drop-shadow h-52 w-52 lg:w-36 lg:h-36 xl:w-44 xl:h-44"
+          height="200"
+          width="200"
+          className="drop-shadow xl:w-36 xl:h-36 2xl:w-44 2xl:h-44"
         />
       </div>
       <div className="flex flex-1 flex-col items-center justify-evenly w-full ">

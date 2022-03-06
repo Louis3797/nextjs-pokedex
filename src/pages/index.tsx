@@ -57,16 +57,14 @@ const Home: NextPage = () => {
       next;
       pokemon;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
       <Head>
         <title>Pokedéx</title>
-        <meta
-          name="description"
-          content="Get information about all Pokemon"
-        ></meta>
+        <meta name="description" content="Get information about all Pokemon" />
         <meta property="og:title" content="Pokedéx" key="Pokedéx" />
       </Head>
       <InfiniteScroll
@@ -77,7 +75,10 @@ const Home: NextPage = () => {
         endMessage={<div></div>}
         className="flex flex-col items-center justify-center"
       >
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 grid-cols-1 gap-4 lg:p-16 p-10 xl:w-2/3 w-full">
+        <div
+          key={next}
+          className="grid md:grid-cols-2 2xl:grid-cols-3 grid-cols-1 gap-4 lg:p-16 p-10 xl:w-2/3 w-full"
+        >
           {pokemon.map((data: IPokemon, idx: number) => (
             <PokemonCard
               key={idx}

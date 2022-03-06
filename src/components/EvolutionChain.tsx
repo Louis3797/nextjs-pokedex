@@ -24,9 +24,10 @@ export const EvolutionChain: React.FC<EvolutionChainProps> = ({ chainURL }) => {
     return () => {
       data;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chainURL]);
   return (
-    <div className="flex flex-row justify-center w-full h-full flex-wrap overflow-visible bg-accent mt-6">
+    <div className="flex flex-row justify-center w-full h-full flex-wrap overflow-visible mt-6">
       {typeof data?.chain.species !== "undefined" && (
         <EvolutionImage
           species={data?.chain.species}
