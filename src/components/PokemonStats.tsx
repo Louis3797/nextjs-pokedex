@@ -50,7 +50,7 @@ export const PokemonStats = () => {
     },
   ];
   return (
-    <div className="flex flex-col h-full w-1/2 rounded-r-2xl justify-start md:px-20 px-1 py-5 overflow-y-auto bg-primary items-start">
+    <div className="flex flex-col h-full lg:w-1/2 w-full lg:rounded-r-2xl rounded-b-2xl justify-start md:px-20 px-5 py-5 overscroll-visible lg:overflow-y-auto bg-primary items-start">
       <p className="font-semibold text-secondary text-lg" key={pokemon.id}>
         {
           species.flavor_text_entries.find(

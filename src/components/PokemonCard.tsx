@@ -1,6 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/jsx-key */
-import React, { useMemo } from "react";
+
 import { useRouter } from "next/router";
+import React, { useMemo } from "react";
 import { Type } from "types/Pokemon";
 import { capitalizeFirstLetter } from "utils/capatilize";
 import { PokemonTypeColor } from "utils/colors";
@@ -53,9 +55,7 @@ const PokemonCard: React.FC<PokemonCard> = ({ id, name, type }) => {
         <img
           src={`${IMG_URL + id.toString().padStart(3, "0")}.png`}
           alt={name}
-          height="200"
-          width="200"
-          className="drop-shadow"
+          className="drop-shadow h-52 w-52 lg:w-36 lg:h-36 xl:w-44 xl:h-44"
         />
       </div>
       <div className="flex flex-1 flex-col items-center justify-evenly w-full ">

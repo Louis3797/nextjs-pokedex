@@ -26,7 +26,7 @@ export const EvolutionChain: React.FC<EvolutionChainProps> = ({ chainURL }) => {
     };
   }, [chainURL]);
   return (
-    <div className="flex flex-row justify-center w-full  h-full flex-wrap overflow-visible mt-6">
+    <div className="flex flex-row justify-center w-full h-full flex-wrap overflow-visible bg-accent mt-6">
       {typeof data?.chain.species !== "undefined" && (
         <EvolutionImage
           species={data?.chain.species}
@@ -35,7 +35,7 @@ export const EvolutionChain: React.FC<EvolutionChainProps> = ({ chainURL }) => {
       )}
       {data?.chain.evolves_to.length !== 0 && (
         <>
-          <BsCaretRightFill className="self-center mb-8 text-lg text-secondary mr-3  xl:mr-6 " />
+          <BsCaretRightFill className="self-center mb-8 text-lg text-secondary mr-3 xl:mr-6 " />
           {data?.chain.evolves_to.map((s: EvolvesTo, idx: number) => {
             return (
               <EvolutionImage

@@ -24,7 +24,7 @@ export const PokemonImage = () => {
 
   return (
     <div
-      className="flex flex-col h-full w-1/2 relative rounded-l-2xl justify-center items-center"
+      className="flex flex-col h-full lg:w-1/2 w-full relative lg:rounded-l-2xl rounded-t-2xl lg:justify-center justify-end items-center"
       style={{
         background: `radial-gradient(#fafafa,30%, ${backgroundColors[0].medium})`,
       }}
@@ -40,7 +40,7 @@ export const PokemonImage = () => {
           {capitalizeFirstLetter(pokemon.name)}
         </p>
       </div>
-      <p className="font-bold text-7xl drop-shadow-xl tracking-widest absolute text-primary opacity-60 top-44">
+      <p className="font-bold text-7xl drop-shadow-xl tracking-widest absolute text-primary opacity-60 top-32  lg:top-44">
         {jpName?.name}
       </p>
       <Image
