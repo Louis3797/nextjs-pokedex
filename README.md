@@ -14,7 +14,7 @@
   <p align="center">
     A simple pokedéx build with Nextjs and PokéAPI
     <br />
-    <a href="https://github.com/Louis3797/nextjs-pokedex/">View Demo</a>
+    <a href="https://nextjs-pokedex-crklxtrs6-louis3797.vercel.app">View Demo</a>
     ·
     <a href="https://github.com/Louis3797/nextjs-pokedex/issues">Report Bug</a>
     ·
@@ -47,7 +47,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This is a simple but pretty Pokédex that I created in my spare time. It was built using Next.js and the PokéAPI. 
+This is a simple but pretty Pokédex that I created in my spare time. It was built using Next.js and the PokéAPI.
 
 ### Images
 
@@ -120,4 +120,4 @@ Project Link: [nextjs-pokedex](https://github.com/Louis3797/nextjs-pokedex/)
 [issues-url]: https://github.com/Louis3797/nextjs-pokedex/issues
 
 [license-shield]: https://img.shields.io/github/license/Louis3797/nextjs-pokedex.svg?style=for-the-badge
-[license-url]: https://github.com/Louis3797/nextjs-pokedex/blob/master/LICENSE.txt
+[license-url]: https://github.com/Louis3797/nextjs-pokedex/blob/main/LICENSE
