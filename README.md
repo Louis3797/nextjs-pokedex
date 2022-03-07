@@ -14,7 +14,7 @@
   <p align="center">
     A simple pokedéx build with Nextjs and PokéAPI
     <br />
-    <a href="https://nextjs-pokedex-crklxtrs6-louis3797.vercel.app">View Demo</a>
+    <a href="https://nextjs-pokedex-louis3797.vercel.app/">View Demo</a>
     ·
     <a href="https://github.com/Louis3797/nextjs-pokedex/issues">Report Bug</a>
     ·
