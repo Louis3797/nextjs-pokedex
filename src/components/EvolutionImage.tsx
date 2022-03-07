@@ -25,14 +25,7 @@ export const EvolutionImage: React.FC<EvolutionImageProps> = ({
         >
           <img
             key={species.name}
-            src={`${
-              IMG_URL +
-              species.url
-                .split("/")
-                .slice(-2, -1)[0]
-                .toString()
-                .padStart(3, "0")
-            }.png`}
+            src={`${IMG_URL + species.url.split("/").slice(-2, -1)[0]}.webp`}
             height={80}
             width={80}
             alt={species.name}

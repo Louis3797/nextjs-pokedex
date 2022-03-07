@@ -45,7 +45,7 @@ export const PokemonImage = () => {
       </p>
       <Image
         key={pokemon.id}
-        src={`${IMG_URL + pokemon.id.toString().padStart(3, "0")}.png`}
+        src={`${IMG_URL + pokemon.id}.webp`}
         alt={pokemon.name}
         height={350}
         width={350}

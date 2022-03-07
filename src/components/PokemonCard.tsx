@@ -53,7 +53,7 @@ const PokemonCard: React.FC<PokemonCard> = ({ id, name, type }) => {
           {"#" + id.toString().padStart(3, "0")}
         </p>
         <img
-          src={`${IMG_URL + id.toString().padStart(3, "0")}.png`}
+          src={`${IMG_URL + id}.webp`}
           alt={name}
           height="200"
           width="200"

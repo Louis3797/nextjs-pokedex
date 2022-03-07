@@ -43,7 +43,8 @@ const Home: NextPage = () => {
   function fetchPokemonDetails(data: Result[]): void {
     data.forEach(async (x: Result) => {
       const newPokemon: IPokemon = await fetch(
-        `https://pokeapi.co/api/v2/pokemon/${x.name}`
+        `https://pokeapi.co/api/v2/pokemon/${x.name}`,
+        { cache: "force-cache" }
       ).then((response) => response.json());
 
       setPokemons(newPokemon);
