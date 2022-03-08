@@ -5,7 +5,7 @@ import { BsGithub } from "react-icons/bs";
 
 export const Navbar = () => {
   return (
-    <div className="flex flex-row w-full top-0 lg:mb-0 mb-10 h-14 bg-primary shadow-md justify-between px-3 items-center">
+    <div className="sticky z-50 flex flex-row w-full top-0 lg:mb-0 mb-10 h-14 bg-primary shadow-md justify-between px-3 items-center">
       <Link href="/" passHref>
         <h1 className="text-2xl text-accent font-bold">Pokédex</h1>
       </Link>
