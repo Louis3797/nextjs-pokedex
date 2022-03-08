@@ -22,7 +22,7 @@ const PokemonCard: React.FC<PokemonCard> = ({ id, name, type }) => {
 
   return (
     <div
-      className="flex flex-col w-full h-80 rounded-2xl shadow-lg items-center justify-between transition-all ease-in-out duration-500 hover:-translate-y-2"
+      className="flex flex-col w-full h-80 rounded-2xl shadow-lg items-center justify-between transition-all ease-in-out duration-500 hover:-translate-y-3 hover:scale-105 hover:shadow-gray-300"
       onClick={() => router.push(`pokemon/${name}`)}
     >
       <div
