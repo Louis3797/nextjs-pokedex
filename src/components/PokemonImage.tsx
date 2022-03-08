@@ -2,10 +2,8 @@
 /* eslint-disable react/jsx-key */
 import { usePokemonDetailStore } from "global-stores/PokemonDetailStore";
 import React, { useMemo } from "react";
-import Image from "next/image";
 import { Name } from "types/PokemonSpecies";
 import Link from "next/link";
-import { capitalizeFirstLetter } from "utils/capatilize";
 import { BsArrowLeftShort } from "react-icons/bs";
 import { IMG_URL } from "utils/constants";
 import { getBackgroundColors } from "utils/getBackgroundColors";
