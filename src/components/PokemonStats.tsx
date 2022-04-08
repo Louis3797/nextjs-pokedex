@@ -24,7 +24,7 @@ export const PokemonStats = () => {
     },
     {
       title: "Height",
-      content: pokemon?.height?.toString().padEnd(1, ".0") + " m",
+      content: (pokemon?.height /10).toString() + " m",
     },
     {
       title: "Weight",
