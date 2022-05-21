@@ -1,62 +1,67 @@
-/* eslint-disable react/jsx-key */
-import { PokemonDetailsCard } from "@/components/PokemonDetailsCard";
-import { usePokemonDetailStore } from "global-stores/PokemonDetailStore";
-import { GetServerSideProps, NextPage } from "next";
-import Head from "next/head";
-import React from "react";
-import { IPokemon } from "types/Pokemon";
-import { IPokemonSpecies } from "types/PokemonSpecies";
-import { capitalizeFirstLetter } from "utils/capatilize";
+import { PokemonDetailsCard } from '@/components'
+import { GetStaticPropsContext, NextPage } from 'next'
+import Head from 'next/head'
+import { IPokemon } from '@/types/Pokemon'
+import { normalizePokemon, formatTitle, fetcher, getPokemon } from '@/utils'
 
 interface PokemonPageProps {
-  pokemonData: IPokemon;
-  pokemonSpeciesData: IPokemonSpecies;
+  pokemon: IPokemon
 }
-const Pokemon: NextPage<PokemonPageProps> = ({
-  pokemonData,
-  pokemonSpeciesData,
-}) => {
-  const setPokemon = usePokemonDetailStore((state) => state.setPokemon);
-  const setSpecies = usePokemonDetailStore((state) => state.setSpecies);
 
-  setPokemon(pokemonData);
-  setSpecies(pokemonSpeciesData);
+const Pokemon: NextPage<PokemonPageProps> = ({ pokemon }) => {
+  const formatedName = formatTitle(pokemon.name)
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen">
+    <>
       <Head>
-        <title>{capitalizeFirstLetter(pokemonData.name)}</title>
-        <meta
-          name="description"
-          content={`Stats from ${pokemonData.name}`}
-        ></meta>
-        <meta
-          property="og:title"
-          content={pokemonData.name}
-          key={pokemonData.name}
-        />
+        <title>{formatedName}</title>
+        <meta name="description" content={`Stats for ${formatedName}`} />
+        <meta property="og:title" content={formatedName} />
       </Head>
-      <PokemonDetailsCard />
-    </div>
-  );
-};
 
-export default Pokemon;
+      <PokemonDetailsCard pokemon={pokemon} />
+    </>
+  )
+}
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { name } = context.query;
+export default Pokemon
 
-  const pokemonData: IPokemon | null = await fetch(
-    `https://pokeapi.co/api/v2/pokemon/${name}`,
-    { cache: "force-cache" }
-  ).then((response) => response.json());
+export async function getStaticProps({
+  params,
+}: GetStaticPropsContext<{ name: string }>) {
+  const { name } = params!
 
-  const pokemonSpeciesData: IPokemonSpecies | null = await fetch(
-    `https://pokeapi.co/api/v2/pokemon-species/${name}`,
-    { cache: "force-cache" }
-  ).then((response) => response.json());
+  const { pokemonData, pokemonSpeciesData } = await getPokemon({ name })
+
+  if (!(pokemonData && pokemonSpeciesData)) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    }
+  }
+
+  const evolution = await fetcher(pokemonSpeciesData!.evolution_chain.url)
+
+  const pokemon = normalizePokemon({
+    pokemon: pokemonData,
+    species: pokemonSpeciesData,
+    evolution,
+  })
 
   return {
-    props: { pokemonData: pokemonData, pokemonSpeciesData: pokemonSpeciesData },
-  };
-};
+    props: { pokemon },
+  }
+}
+
+export async function getStaticPaths() {
+  const pokemons: any = await fetcher(
+    `https:pokeapi.co/api/v2/pokemon/?limit=15`
+  )
+
+  return {
+    paths: pokemons?.results.map((pokemon: any) => `/pokemon/${pokemon.name}`),
+    fallback: 'blocking',
+  }
+}

@@ -24,9 +24,10 @@
 
 ![homescreen][product-screenshot]
 
-
 <!-- TABLE OF CONTENTS -->
+
 ## Table of Content
+
   <ul>
     <li>
       <a href="#about-the-project">About The Project</a>
@@ -45,6 +46,7 @@
   </ul>
 
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
 
 This is a simple but pretty Pokédex that I created in my spare time. It was built using Next.js and the PokéAPI.
@@ -56,17 +58,17 @@ This is a simple but pretty Pokédex that I created in my spare time. It was bui
 
 ### Built With
 
-* [TypeScript](https://www.typescriptlang.org/)
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [PokéAPI](https://pokeapi.co/)
-* [TailwindCss](https://tailwindcss.com/)
-* [Zustand](https://github.com/pmndrs/zustand)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Next.js](https://nextjs.org/)
+- [React.js](https://reactjs.org/)
+- [PokéAPI](https://pokeapi.co/)
+- [TailwindCss](https://tailwindcss.com/)
 
 <!-- GETTING STARTED -->
+
 ## Getting Started
 
-This project uses yarn as packet manager.
+This project uses pnpm as package manager.
 
 ### Installation
 
@@ -80,23 +82,25 @@ This project uses yarn as packet manager.
 
    ```sh
     cd nextjs-pokedex
-    yarn install 
+    pnpm install
    ```
 
 3. Run on dev
 
    ```sh
-    yarn dev
+    pnpm dev
    ```
 
 See the [open issues](https://github.com/Louis3797/nextjs-pokedex/issues) for a full list of proposed features (and known issues).
 
 <!-- LICENSE -->
+
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <!-- CONTACT -->
+
 ## Contact
 
 Louis
@@ -109,15 +113,11 @@ Project Link: [nextjs-pokedex](https://github.com/Louis3797/nextjs-pokedex/)
 [product-screenshot]: assets/pokédex_home_screenshot.png
 [screenshot_2]: assets/pokédex_screenshot.png
 [stats]: assets/cubchoo.png
-
 [forks-shield]: https://img.shields.io/github/forks/Louis3797/nextjs-pokedex.svg?style=for-the-badge
 [forks-url]: https://github.com/Louis3797/nextjs-pokedex/network/members
-
 [stars-shield]: https://img.shields.io/github/stars/Louis3797/nextjs-pokedex.svg?style=for-the-badge
 [stars-url]: https://github.com/Louis3797/nextjs-pokedex/stargazers
-
 [issues-shield]: https://img.shields.io/github/issues/Louis3797/nextjs-pokedex.svg?style=for-the-badge
 [issues-url]: https://github.com/Louis3797/nextjs-pokedex/issues
-
 [license-shield]: https://img.shields.io/github/license/Louis3797/nextjs-pokedex.svg?style=for-the-badge
 [license-url]: https://github.com/Louis3797/nextjs-pokedex/blob/main/LICENSE
