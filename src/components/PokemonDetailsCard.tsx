@@ -1,13 +1,19 @@
-/* eslint-disable react/jsx-key */
-import React from "react";
-import { PokemonImage } from "./PokemonImage";
-import { PokemonStats } from "./PokemonStats";
+import PokemonImage from './PokemonImage'
+import PokemonStats from './PokemonStats'
 
-export const PokemonDetailsCard = () => {
+interface PokemonDetailsCardProps {
+  pokemon: any
+}
+
+const PokemonDetailsCard = ({ pokemon }: PokemonDetailsCardProps) => {
   return (
-    <div className="flex lg:flex-row flex-col w-11/12 2xl:w-8/12 lg:h-3/5 h-screen shadow-lg rounded-2xl mt-6">
-      <PokemonImage />
-      <PokemonStats />
+    <div className="flex h-full w-full items-center justify-center p-5">
+      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 overflow-hidden rounded-2xl shadow-lg shadow-accent/20 lg:max-h-[70vh] lg:grid-cols-2">
+        <PokemonImage pokemon={pokemon} />
+        <PokemonStats pokemon={pokemon} />
+      </div>
     </div>
-  );
-};
+  )
+}
+
+export default PokemonDetailsCard

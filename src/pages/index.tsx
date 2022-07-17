@@ -1,97 +1,67 @@
-/* eslint-disable react/jsx-key */
-import PokemonCard from "@/components/PokemonCard";
-import { usePokemonStore } from "global-stores/PokemonStore";
-import type { NextPage } from "next";
-import Head from "next/head";
-import { useEffect } from "react";
-import InfiniteScroll from "react-infinite-scroll-component";
-import { IPokemon } from "types/Pokemon";
-
+import PokemonCard from '@/components/PokemonCard'
+import type { NextPage } from 'next'
+import Head from 'next/head'
+import { useInfiniteQuery } from '@/hooks'
+import { useMemo } from 'react'
+import { useInView } from 'react-cool-inview'
 export interface Result {
-  name: string;
-  url: string;
+  name: string
+  url: string
 }
-
 export interface PokemonIDList {
-  count: number;
-  next: string;
-  previous?: any;
-  results: Result[];
+  count: number
+  next: string
+  previous?: any
+  results: Result[]
 }
+
 const Home: NextPage = () => {
-  const { pokemon, next } = usePokemonStore((state) => ({
-    pokemon: state.pokemon,
-    next: state.next,
-  }));
+  const { data, next } = useInfiniteQuery()
 
-  const setPokemons = usePokemonStore((state) => state.setPokemons);
+  const pokemons: any = useMemo(
+    () => data?.flatMap((page: any) => page?.results) ?? [],
+    [data]
+  )
 
-  const setNext = usePokemonStore((state) => state.setNext);
+  const { observe } = useInView({
+    // For better UX, we can grow the root margin so the data will be loaded earlier
+    rootMargin: '300px',
+    // When the last item comes to the viewport
+    onEnter: ({ unobserve }) => {
+      // Pause observe when loading data
+      unobserve()
 
-  async function fetchPokemon(): Promise<void> {
-    if (next !== null) {
-      const data: PokemonIDList = await fetch(next).then((response) =>
-        response.json()
-      );
-
-      setNext(data.next);
-
-      fetchPokemonDetails(data.results);
-    }
-  }
-
-  function fetchPokemonDetails(data: Result[]): void {
-    data.forEach(async (x: Result) => {
-      const newPokemon: IPokemon = await fetch(
-        `https://pokeapi.co/api/v2/pokemon/${x.name}`,
-        { cache: "force-cache" }
-      ).then((response) => response.json());
-
-      setPokemons(newPokemon);
-    });
-  }
-
-  useEffect(() => {
-    fetchPokemon();
-
-    return () => {
-      next;
-      pokemon;
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+      // Load more data
+      next()
+    },
+  })
 
   return (
     <>
       <Head>
         <title>Pokedéx</title>
-        <meta name="description" content="Get information about all Pokemon" />
+        <meta name="description" content="Get information about all Pokemons" />
         <meta property="og:title" content="Pokedéx" key="Pokedéx" />
       </Head>
-      <InfiniteScroll
-        dataLength={pokemon.length}
-        next={fetchPokemon}
-        hasMore={!!next}
-        loader={<h3></h3>}
-        endMessage={<div></div>}
-        className="flex flex-col items-center justify-center"
-      >
-        <div
-          key={next}
-          className="grid md:grid-cols-2 2xl:grid-cols-3 grid-cols-1 gap-4 lg:p-16 p-10 xl:w-2/3 w-full"
-        >
-          {pokemon.map((data: IPokemon, idx: number) => (
-            <PokemonCard
-              key={idx}
-              id={data.id}
-              name={data.name}
-              type={data.types}
-            />
-          ))}
-        </div>
-      </InfiniteScroll>
-    </>
-  );
-};
 
-export default Home;
+      <ul className="mx-auto grid min-h-screen w-full max-w-7xl grid-cols-1 gap-4 p-10 pt-8 md:grid-cols-2 md:gap-5 lg:gap-7 lg:p-16 lg:pt-4 xl:w-2/3 2xl:grid-cols-3">
+        {pokemons?.map((data: any, index: number) => {
+          const isLast = index === pokemons.length - 1
+          const { name, url } = data
+
+          return (
+            <li
+              key={name}
+              ref={isLast ? observe : null}
+              className="h-80 w-full"
+            >
+              <PokemonCard url={url} index={++index} />
+            </li>
+          )
+        })}
+      </ul>
+    </>
+  )
+}
+
+export default Home

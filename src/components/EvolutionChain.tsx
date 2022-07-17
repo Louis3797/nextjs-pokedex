@@ -1,58 +1,46 @@
-/* eslint-disable react/jsx-key */
-import { usePokemonDetailStore } from "global-stores/PokemonDetailStore";
-import React, { useEffect, useState } from "react";
-import { BsCaretRightFill } from "react-icons/bs";
-import { EvolvesTo, IEvolutionChain } from "types/EvolutionChain";
-import { getBackgroundColors } from "utils/getBackgroundColors";
-import { EvolutionImage } from "./EvolutionImage";
+import { EvolvesTo } from '@/types/EvolutionChain'
+import getBackgroundColors from '@/utils/getBackgroundColors'
+import { FC } from 'react'
+import { BsCaretRightFill } from 'react-icons/bs'
+import EvolutionImage from './EvolutionImage'
 
 interface EvolutionChainProps {
-  chainURL: string;
+  pokemon: any
 }
-export const EvolutionChain: React.FC<EvolutionChainProps> = ({ chainURL }) => {
-  const pokemon = usePokemonDetailStore((state) => state.pokemon);
 
-  const [data, setData] = useState<IEvolutionChain>();
-
-  async function fetchData() {
-    const evoData = await fetch(chainURL).then((response) => response.json());
-    setData(evoData);
-  }
-
-  useEffect(() => {
-    fetchData();
-    return () => {
-      data;
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [chainURL]);
+const EvolutionChain: FC<EvolutionChainProps> = ({ pokemon }) => {
   return (
-    <div className="flex flex-row justify-center w-full h-full flex-wrap overflow-visible mt-6">
-      {typeof data?.chain.species !== "undefined" && (
+    <div className="my-8 flex flex-wrap justify-center overflow-visible">
+      {pokemon?.evolution?.chain?.species && (
         <EvolutionImage
-          species={data?.chain.species}
-          bgColor={getBackgroundColors(pokemon.types)}
+          species={pokemon.evolution?.chain.species}
+          bgColor={pokemon.bgColors}
         />
       )}
-      {data?.chain.evolves_to.length !== 0 && (
+
+      {pokemon.evolution?.chain.evolves_to.length !== 0 && (
         <>
-          <BsCaretRightFill className="self-center mb-8 text-lg text-secondary mr-3 xl:mr-6 " />
-          {data?.chain.evolves_to.map((s: EvolvesTo, idx: number) => {
-            return (
-              <EvolutionImage
-                key={idx}
-                species={s.species}
-                bgColor={getBackgroundColors(pokemon.types)}
-              />
-            );
-          })}
+          <BsCaretRightFill className="mb-8 mr-3 self-center text-lg text-secondary xl:mr-6 " />
+          {pokemon.evolution?.chain.evolves_to.map(
+            (s: EvolvesTo, idx: number) => {
+              return (
+                <EvolutionImage
+                  key={idx}
+                  species={s.species}
+                  bgColor={pokemon.bgColors}
+                />
+              )
+            }
+          )}
         </>
       )}
-      {typeof data?.chain.evolves_to[0]?.evolves_to !== "undefined" &&
-        data?.chain.evolves_to[0].evolves_to.length !== 0 && (
+
+      {typeof pokemon.evolution?.chain.evolves_to[0]?.evolves_to !==
+        'undefined' &&
+        pokemon.evolution?.chain.evolves_to[0].evolves_to.length !== 0 && (
           <>
-            <BsCaretRightFill className="self-center mb-8 text-lg text-secondary mr-3  xl:mr-6 " />
-            {data?.chain.evolves_to[0].evolves_to.map(
+            <BsCaretRightFill className="mb-8 mr-3 self-center text-lg text-secondary  xl:mr-6 " />
+            {pokemon.evolution?.chain.evolves_to[0].evolves_to.map(
               (s: EvolvesTo, idx: number) => {
                 return (
                   <EvolutionImage
@@ -60,11 +48,13 @@ export const EvolutionChain: React.FC<EvolutionChainProps> = ({ chainURL }) => {
                     species={s.species}
                     bgColor={getBackgroundColors(pokemon.types)}
                   />
-                );
+                )
               }
             )}
           </>
         )}
     </div>
-  );
-};
+  )
+}
+
+export default EvolutionChain

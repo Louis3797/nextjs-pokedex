@@ -1,16 +1,13 @@
-/* eslint-disable react/jsx-key */
-import React from "react";
-import { Navbar } from "./Navbar";
+import { ReactNode } from 'react'
+import Navbar from './Navbar'
 
-interface LayoutProps {
-  children: React.ReactNode;
+const Layout = ({ children }: { children: ReactNode }) => {
+  return (
+    <>
+      <Navbar />
+      <main className="mt-14 flex h-full w-full flex-col">{children}</main>
+    </>
+  )
 }
 
-export const Layout: React.FC<LayoutProps> = ({ children }) => {
-  return (
-    <div className="flex flex-col h-full w-full">
-      <Navbar />
-      {children}
-    </div>
-  );
-};
+export default Layout
