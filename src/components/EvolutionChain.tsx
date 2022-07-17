@@ -1,8 +1,8 @@
-import { BsCaretRightFill } from 'react-icons/bs'
 import { EvolvesTo } from '@/types/EvolutionChain'
-import { getBackgroundColors } from '@/utils'
-import EvolutionImage from './EvolutionImage'
+import getBackgroundColors from '@/utils/getBackgroundColors'
 import { FC } from 'react'
+import { BsCaretRightFill } from 'react-icons/bs'
+import EvolutionImage from './EvolutionImage'
 
 interface EvolutionChainProps {
   pokemon: any

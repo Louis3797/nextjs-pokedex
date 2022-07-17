@@ -1,12 +1,12 @@
-import Image from 'next/image'
+import Image from 'next/future/image'
 import Link from 'next/link'
 import { BsArrowLeftShort } from 'react-icons/bs'
 
-interface PokemonImage {
+interface PokemonImageProps {
   pokemon: any
 }
 
-const PokemonImage = ({ pokemon }: PokemonImage) => {
+const PokemonImage = ({ pokemon }: PokemonImageProps) => {
   return (
     <div
       className="relative flex h-full max-h-[70vh] min-h-[50vh] w-full flex-col items-center justify-between overflow-hidden rounded-2xl lg:rounded-br-none"
@@ -34,9 +34,9 @@ const PokemonImage = ({ pokemon }: PokemonImage) => {
           key={pokemon.id}
           src={pokemon.image}
           alt={pokemon.name}
-          layout="fill"
-          objectFit="contain"
-          className="animate-poke-bounce"
+          width={200}
+          height={200}
+          className="h-full w-full animate-poke-bounce object-contain"
         />
       </div>
     </div>

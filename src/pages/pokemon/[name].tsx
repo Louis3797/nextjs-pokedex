@@ -1,8 +1,11 @@
-import { PokemonDetailsCard } from '@/components'
+import PokemonDetailsCard from '@/components/PokemonDetailsCard'
+import { IPokemon } from '@/types/Pokemon'
+import fetcher from '@/utils/fetcher'
+import formatTitle from '@/utils/formatTitle'
+import getPokemon from '@/utils/getPokemon'
+import { normalizePokemon } from '@/utils/normalizePokemon'
 import { GetStaticPropsContext, NextPage } from 'next'
 import Head from 'next/head'
-import { IPokemon } from '@/types/Pokemon'
-import { normalizePokemon, formatTitle, fetcher, getPokemon } from '@/utils'
 
 interface PokemonPageProps {
   pokemon: IPokemon
@@ -15,8 +18,14 @@ const Pokemon: NextPage<PokemonPageProps> = ({ pokemon }) => {
     <>
       <Head>
         <title>{formatedName}</title>
-        <meta name="description" content={`Stats for ${formatedName}`} />
-        <meta property="og:title" content={formatedName} />
+        <meta
+          name="description"
+          content={`Stats for ${formatedName}`}
+        />
+        <meta
+          property="og:title"
+          content={formatedName}
+        />
       </Head>
 
       <PokemonDetailsCard pokemon={pokemon} />

@@ -1,4 +1,4 @@
-import { fetcher } from '@/utils'
+import fetcher from '@/utils/fetcher'
 import { useCallback } from 'react'
 import useSWRInfinite from 'swr/infinite'
 

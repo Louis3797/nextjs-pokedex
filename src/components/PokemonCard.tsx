@@ -1,18 +1,21 @@
-import { FC, useMemo } from 'react'
-import Link from 'next/link'
 import { Type } from '@/types/Pokemon'
+import PokemonTypeColor from '@/utils/colors'
 import { IMG_URL } from '@/utils/constants'
-import { fetcher, normalizePokemonLite, PokemonTypeColor } from '@/utils'
-import { PokemonIcon } from './Icons'
+import fetcher from '@/utils/fetcher'
+import { normalizePokemonLite } from '@/utils/normalizePokemon'
+import Image from 'next/future/image'
+import Link from 'next/link'
+import { FC, useMemo } from 'react'
 import useSWRImmutable from 'swr/immutable'
+import { PokemonIcon } from './Icons'
 
-interface PokemonCard {
+interface PokemonCardProps {
   url: string
   index: number
   [x: string]: any
 }
 
-const PokemonCard: FC<PokemonCard> = ({ url, index, ...props }) => {
+const PokemonCard: FC<PokemonCardProps> = ({ url, index, ...props }) => {
   const { data, error } = useSWRImmutable(url, fetcher)
 
   const pokemon = useMemo(() => {
@@ -50,7 +53,7 @@ const PokemonCard: FC<PokemonCard> = ({ url, index, ...props }) => {
           {`#${id.toString().padStart(3, '0')}`}
         </p>
 
-        <img
+        <Image
           src={`${IMG_URL + id}.webp`}
           alt={name}
           height={200}
@@ -74,7 +77,7 @@ const PokemonCard: FC<PokemonCard> = ({ url, index, ...props }) => {
                 key={idx}
                 style={{
                   backgroundColor: Object.entries(PokemonTypeColor).filter(
-                    ([key, _]) => key === t.type.name
+                    ([key]) => key === t.type.name
                   )[0][1].medium,
                 }}
                 className="rounded-md px-2 py-1"

@@ -6,6 +6,11 @@ const nextConfig = {
   experimental: {
     newNextLinkBehavior: true,
     scrollRestoration: true,
+
+    legacyBrowsers: false,
+    browsersListForSwc: true,
+
+    images: { allowFutureImage: true },
   },
 
   compiler: {
@@ -16,7 +21,7 @@ const nextConfig = {
 
   images: {
     domains: ['raw.githubusercontent.com'],
-    minimumCacheTTL: 84600 * 30, // 30days
+    minimumCacheTTL: 84600 * 90, // 90days
   },
 }
 
