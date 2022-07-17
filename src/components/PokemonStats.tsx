@@ -31,10 +31,7 @@ const PokemonStats = ({ pokemon }: PokemonStatsProps) => {
           })}
         </div>
 
-        <p
-          className="text-lg font-semibold text-secondary"
-          key={pokemon.id}
-        >
+        <p className="text-lg font-semibold text-secondary" key={pokemon.id}>
           {pokemon.flavorText}
         </p>
 

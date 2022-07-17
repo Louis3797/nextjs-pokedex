@@ -18,14 +18,8 @@ const Pokemon: NextPage<PokemonPageProps> = ({ pokemon }) => {
     <>
       <Head>
         <title>{formatedName}</title>
-        <meta
-          name="description"
-          content={`Stats for ${formatedName}`}
-        />
-        <meta
-          property="og:title"
-          content={formatedName}
-        />
+        <meta name="description" content={`Stats for ${formatedName}`} />
+        <meta property="og:title" content={formatedName} />
       </Head>
 
       <PokemonDetailsCard pokemon={pokemon} />

@@ -44,7 +44,7 @@ const Home: NextPage = () => {
         <meta property="og:title" content="Pokedéx" key="Pokedéx" />
       </Head>
 
-      <ul className="mx-auto grid min-h-screen w-full max-w-7xl grid-cols-1 gap-4 p-10 pt-8 md:grid-cols-2 md:gap-5 lg:gap-7 lg:pt-4 lg:p-16 xl:w-2/3 2xl:grid-cols-3">
+      <ul className="mx-auto grid min-h-screen w-full max-w-7xl grid-cols-1 gap-4 p-10 pt-8 md:grid-cols-2 md:gap-5 lg:gap-7 lg:p-16 lg:pt-4 xl:w-2/3 2xl:grid-cols-3">
         {pokemons?.map((data: any, index: number) => {
           const isLast = index === pokemons.length - 1
           const { name, url } = data

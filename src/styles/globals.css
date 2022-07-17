@@ -24,11 +24,11 @@ a {
 }
 
 #__next {
-  @apply flex items-center justify-between flex-row;
+  @apply flex flex-row items-center justify-between;
 }
 
 main {
-  @apply pt-14 flex-1;
+  @apply flex-1 pt-14;
 }
 
 img {

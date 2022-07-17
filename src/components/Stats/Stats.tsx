@@ -26,10 +26,7 @@ const Stats: FC<StateProps> = ({ stats }) => {
           {stats.map((s: any, index: number) => {
             const { title, content } = s
             return (
-              <tr
-                key={index}
-                className="border even:bg-primary-600"
-              >
+              <tr key={index} className="border even:bg-primary-600">
                 <td className="border border-secondary/10 p-2 text-left">
                   {title}
                 </td>
