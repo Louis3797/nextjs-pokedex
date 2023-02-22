@@ -1,7 +1,7 @@
 import PokemonCard from '@/components/PokemonCard'
+import { useInfiniteQuery } from '@/hooks'
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { useInfiniteQuery } from '@/hooks'
 import { useMemo } from 'react'
 import { useInView } from 'react-cool-inview'
 export interface Result {

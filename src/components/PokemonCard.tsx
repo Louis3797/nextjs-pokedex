@@ -33,7 +33,7 @@ const PokemonCard: FC<PokemonCardProps> = ({ url, index, ...props }) => {
     <Link
       href={`pokemon/${name}`}
       prefetch={false}
-      className="hover:shadow-gray-300 flex h-full w-full flex-col items-center justify-between rounded-2xl shadow-lg shadow-accent/10 transition-all duration-500 ease-in-out will-change-transform hover:-translate-y-3 hover:scale-105"
+      className="hover:shadow-gray-300 flex h-full w-full flex-col items-center justify-between rounded-2xl shadow-lg shadow-secondary/10 transition-all duration-500 ease-in-out will-change-transform hover:-translate-y-3 hover:scale-105"
       {...props}
     >
       <div

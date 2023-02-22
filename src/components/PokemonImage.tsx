@@ -1,4 +1,3 @@
-import Image from 'next/future/image'
 import Link from 'next/link'
 import { BsArrowLeftShort } from 'react-icons/bs'
 
@@ -25,12 +24,14 @@ const PokemonImage = ({ pokemon }: PokemonImageProps) => {
       </div>
 
       <div className="absolute top-28 flex select-none flex-col items-center justify-center text-4xl font-bold tracking-widest text-primary opacity-60 drop-shadow-xl lg:top-36 lg:text-7xl">
-        <h1>{pokemon.name}</h1>
+        <h1 className="capitalize">{pokemon.name}</h1>
         <h2>{pokemon.jpName}</h2>
       </div>
 
       <div className="relative flex h-2/4 w-2/4 items-center justify-center lg:mt-36 lg:h-full lg:w-80">
-        <Image
+        {/* The next/image component is not used here because this project is hosted by vercel and they 
+      only allow 1000 image optimizations per month on the free tier. */}
+        <img
           key={pokemon.id}
           src={pokemon.image}
           alt={pokemon.name}

@@ -1,7 +1,7 @@
 import PokemonDetailsCard from '@/components/PokemonDetailsCard'
 import { IPokemon } from '@/types/Pokemon'
 import fetcher from '@/utils/fetcher'
-import formatTitle from '@/utils/formatTitle'
+
 import getPokemon from '@/utils/getPokemon'
 import { normalizePokemon } from '@/utils/normalizePokemon'
 import { GetStaticPropsContext, NextPage } from 'next'
@@ -12,7 +12,12 @@ interface PokemonPageProps {
 }
 
 const Pokemon: NextPage<PokemonPageProps> = ({ pokemon }) => {
-  const formatedName = formatTitle(pokemon.name)
+  // Capitalize every first letter in the name
+  const formatedName = pokemon.name
+    .toLowerCase()
+    .split(' ')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
 
   return (
     <>
