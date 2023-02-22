@@ -18,7 +18,7 @@ const EvolutionImage: FC<EvolutionImageProps> = ({ species, bgColor }) => {
           background: `radial-gradient(#fafafa,50%, ${bgColor[0].medium})`,
         }}
       >
-        {/* The image component is not used here because this project is hosted by vercel and they 
+        {/* The next/image component is not used here because this project is hosted by vercel and they 
       only allow 1000 image optimizations per month on the free tier. */}
         <img
           key={species.name}

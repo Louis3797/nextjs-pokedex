@@ -29,7 +29,7 @@ const PokemonImage = ({ pokemon }: PokemonImageProps) => {
       </div>
 
       <div className="relative flex h-2/4 w-2/4 items-center justify-center lg:mt-36 lg:h-full lg:w-80">
-        {/* The image component is not used here because this project is hosted by vercel and they 
+        {/* The next/image component is not used here because this project is hosted by vercel and they 
       only allow 1000 image optimizations per month on the free tier. */}
         <img
           key={pokemon.id}
