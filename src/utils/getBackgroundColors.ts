@@ -6,7 +6,7 @@ const getBackgroundColors = (
 ): { light: string; medium: string }[] => {
   return type.map(({ type }) => {
     const [[, backgroundColor]] = Object.entries(PokemonTypeColor).filter(
-      ([key, _]) => key === type.name
+      ([key]) => key === type.name
     )
 
     return backgroundColor
