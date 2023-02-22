@@ -4,7 +4,7 @@ import { BsGithub } from 'react-icons/bs'
 
 const Navbar = () => {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 h-14 w-full bg-primary px-3 shadow-md shadow-accent/20">
+    <header className="fixed inset-x-0 top-0 z-50 h-14 w-full bg-primary px-3 shadow-md shadow-secondary/20">
       <div className="mx-auto flex h-full w-full max-w-7xl flex-row items-center justify-between">
         <Link href="/">
           <h1 className="text-2xl font-bold text-accent">Pokédex</h1>
