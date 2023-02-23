@@ -3,7 +3,6 @@ import PokemonTypeColor from '@/utils/colors'
 import { IMG_URL } from '@/utils/constants'
 import fetcher from '@/utils/fetcher'
 import { normalizePokemonLite } from '@/utils/normalizePokemon'
-import Image from 'next/future/image'
 import Link from 'next/link'
 import { FC, useMemo } from 'react'
 import useSWRImmutable from 'swr/immutable'
@@ -53,7 +52,9 @@ const PokemonCard: FC<PokemonCardProps> = ({ url, index, ...props }) => {
           {`#${id.toString().padStart(3, '0')}`}
         </p>
 
-        <Image
+        {/* The next/image component is not used here because this project is hosted by vercel and they 
+      only allow 1000 image optimizations per month on the free tier. */}
+        <img
           src={`${IMG_URL + id}.webp`}
           alt={name}
           height={200}
