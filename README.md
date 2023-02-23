@@ -68,7 +68,7 @@ This is a simple but pretty Pokédex that I created in my spare time. It was bui
 
 ## Getting Started
 
-This project uses pnpm as package manager.
+This project uses yarn as package manager.
 
 ### Installation
 
@@ -82,13 +82,13 @@ This project uses pnpm as package manager.
 
    ```sh
     cd nextjs-pokedex
-    pnpm install
+    yarn install
    ```
 
 3. Run on dev
 
    ```sh
-    pnpm dev
+   yarn dev
    ```
 
 See the [open issues](https://github.com/Louis3797/nextjs-pokedex/issues) for a full list of proposed features (and known issues).
